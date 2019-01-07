@@ -1,5 +1,5 @@
 <template>
-    <p>{{getCost()}} </p>
+    <p><strong>{{getCost()}}</strong> </p>
 </template>
 
 <script>

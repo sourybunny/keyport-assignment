@@ -1,6 +1,6 @@
 <template>
    
-        <p>Posted {{moment(getTime()).fromNow()}}</p>
+        <p>Posted <em>{{moment(getTime()).fromNow()}}</em></p>
     
 </template>
 

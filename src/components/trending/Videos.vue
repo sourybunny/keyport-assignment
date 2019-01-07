@@ -23,11 +23,11 @@ export default {
 
 <style>
     .videoList {
-        display: flex;
-        margin: 2% auto;
-        justify-content: center;
-        flex-wrap:wrap;
-        
-
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 0;
+            text-align: center;  
     }
 </style>

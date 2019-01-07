@@ -1,15 +1,14 @@
 <template>
-<div class= "container">
-  
-
-<app-videos :videos = "videos">
-
-</app-videos>
+<div>
+  <app-header></app-header>
+  <app-videos :videos = "videos"></app-videos>
 </div>
 </template>
 
 <script>
 import Videos from './components/trending/Videos.vue';
+import Header from './components/shared/Header.vue';
+
 export default {
   data(){
     return {
@@ -18,7 +17,8 @@ export default {
     }
   },
   components: {
-    'appVideos': Videos
+    'appVideos': Videos,
+    'appHeader': Header
   },
   methods: {
     getTrending(){

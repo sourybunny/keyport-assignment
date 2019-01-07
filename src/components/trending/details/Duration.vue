@@ -1,6 +1,6 @@
 <template>
    
-        <p>{{getDuration()}}</p>
+        <p class= "duration">{{getDuration()}}</p>
     
 </template>
 
@@ -24,3 +24,16 @@ export default {
     }
 }
 </script>
+
+<style>
+.duration {
+        background-color: rgba(0,0,0,0.5);
+        color:antiquewhite;
+        padding: 4px;
+        border-radius:5%;
+        margin: 0;
+        position: absolute;
+        transform: translate(354%,-101%)
+    
+}
+</style>

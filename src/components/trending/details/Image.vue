@@ -29,3 +29,21 @@ export default {
     }
 }
 </script>
+
+<style>
+img {
+        background-color: #ccc;
+        display: block;
+        margin: 0;
+        max-width: 100%;
+        min-height: 238px;
+        min-width: 100%;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        
+   
+}
+.image {
+        position: relative;
+}
+</style>

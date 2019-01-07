@@ -1,64 +1,34 @@
 <template>
     <div class="videoItem">
       
-        <img :src="src" @mouseover="getGif" @mouseout="getThumbnail"/>
-        <p>{{video.title}}</p>
-        <p>{{video.channelName}}</p>
-        <p>duration: {{getDuration()}}</p> 
-        <p>{{getCost()}}</p>
-        <p>Posted {{moment(getTime()).fromNow()}}</p>
+        <app-image :playbackId = "video.playbackId" :gifToken = "video.gifToken" :thumbnailToken= "video.thumbnailToken"></app-image>
+        <app-title :title = "video.title"></app-title>
+        <app-channel-name :channel = "video.channelName"></app-channel-name>
+        <app-duration :duration = "video.duration"></app-duration> 
+        <app-cost :minutes = "video.duration/60" :costperminute = "video.costPerMinute" ></app-cost>
+        <app-timeago :createdAt = "video.createdAt"></app-timeago>
     </div>
 </template>
 
 <script>
-var moment = require('moment');
+
+import Title from './details/Title.vue';
+import ChannelName from './details/ChannelName.vue';
+import Duration from './details/Duration.vue';
+import Cost from './details/Cost.vue';
+import Timeago from './details/Timeago.vue';
+import Image from './details/Image.vue';
+
 export default {
-    data(){
-        return {
-            src: null,
-            moment:moment,
-            minutes: null
-            
-            
-            
-        }
-    },
+
     props: ['video'],
-    methods: {
-        getThumbnail(){
-            var imgsrc = "https://image.mux.com/"+this.video.playbackId+"/thumbnail.png?token="+this.video.thumbnailToken;
-            this.src = imgsrc;
-            // console.log(imgsrc)
-        },
-        getGif(){
-            var gifsrc = "https://image.mux.com/"+this.video.playbackId+"/animated.gif?token="+this.video.gifToken
-            this.src = gifsrc;
-        },
-        getTime(){
-            return this.video.createdAt;
-        },
-        getDuration(){
-            this.video.duration;
-            var seconds = this.video.duration;
-            var date = new Date(seconds * 1000);
-            var hh = date.getUTCHours();
-            var mm = date.getUTCMinutes();
-            this.minutes = seconds/60;
-            var ss = date.getSeconds();
-            if (hh < 10) {hh = "0"+hh;}
-            if (mm < 10) {mm = "0"+mm;}
-            if (ss < 10) {ss = "0"+ss;}
-            return hh+":"+mm+":"+ss;
-        },
-        getCost(){
-            var cost = this.video.costPerMinute*this.minutes;
-            return "$"+cost.toFixed(2);
-        }
-        
-    },
-    created(){
-        this.getThumbnail()
-        
+    components: {
+        'appTitle': Title,
+        'appChannelName': ChannelName,
+        'appDuration': Duration,
+        'appCost': Cost,
+        'appTimeago': Timeago,
+        'appImage': Image
     }
 }
 </script>

@@ -33,7 +33,7 @@ export default {
         })
         .then(function(data){
           data.forEach(function(video){
-            console.log(video);
+            // console.log(video);
             vm.videos.push(video);
           })
         })
